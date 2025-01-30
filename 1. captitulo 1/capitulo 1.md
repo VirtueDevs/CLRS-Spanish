@@ -132,15 +132,7 @@ Como ejemplo, el Capítulo 2 introduce dos algoritmos para ordenar. El primero, 
 
 Para un ejemplo concreto, comparemos una computadora más rápida (computadora A) que ejecuta **insertion sort** contra una computadora más lenta (computadora B) que ejecuta **merge sort**. Ambas deben ordenar un arreglo de 10 millones de números. (Aunque 10 millones de números puedan parecer muchos, si los números son enteros de ocho bytes, entonces la entrada ocupa aproximadamente 80 megabytes, lo que cabe en la memoria de incluso una computadora portátil económica varias veces). Supongamos que la computadora A ejecuta 10 mil millones de instrucciones por segundo (más rápido que cualquier computadora secuencial en el momento de escribir esto) y la computadora B ejecuta solo 10 millones de instrucciones por segundo (mucho más lenta que la mayoría de las computadoras contemporáneas), por lo que la computadora A es 1000 veces más rápida que la computadora B en potencia de cálculo bruta. Para hacer la diferencia aún más dramática, supongamos que el programador más hábil del mundo codifica **insertion sort** en lenguaje de máquina para la computadora A, y el código resultante requiere 2n<sup>2</sup> instrucciones para ordenar n números. Supongamos además que un programador promedio implementa **merge sort**, usando un lenguaje de alto nivel con un compilador ineficiente, y el código resultante toma 50n log n instrucciones. Para ordenar 10 millones de números, la computadora A toma:
 
-\[
-\frac{2 \cdot (10^7)^2 \text{ instrucciones}}{10^{10} \text{ instrucciones/segundo}} = 20,000 \text{ segundos (más de 5.5 horas)},
-\]
-
-mientras que la computadora B toma:
-
-\[
-\frac{50 \cdot 10^7 \log 10^7 \text{ instrucciones}}{10^7 \text{ instrucciones/segundo}} \approx 1163 \text{ segundos (menos de 20 minutos)}.
-\]
+![](images/image1.png)
 
 Al usar un algoritmo cuyo tiempo de ejecución crece más lentamente, incluso con un compilador deficiente, la computadora B funciona más de 17 veces más rápido que la computadora A. La ventaja de **merge sort** es aún más pronunciada al ordenar 100 millones de números: mientras que **insertion sort** toma más de 23 días, **merge sort** toma menos de cuatro horas. Aunque 100 millones pueda parecer un número grande, hay más de 100 millones de búsquedas web cada media hora, más de 100 millones de correos electrónicos enviados cada minuto, y algunas de las galaxias más pequeñas (conocidas como galaxias enanas ultracompactas) contienen alrededor de 100 millones de estrellas. En general, a medida que aumenta el tamaño del problema, también lo hace la ventaja relativa de **merge sort**.
 
