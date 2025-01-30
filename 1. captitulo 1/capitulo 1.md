@@ -132,8 +132,11 @@ Como ejemplo, el Capítulo 2 introduce dos algoritmos para ordenar. El primero, 
 
 Para un ejemplo concreto, comparemos una computadora más rápida (computadora A) que ejecuta **insertion sort** contra una computadora más lenta (computadora B) que ejecuta **merge sort**. Ambas deben ordenar un arreglo de 10 millones de números. (Aunque 10 millones de números puedan parecer muchos, si los números son enteros de ocho bytes, entonces la entrada ocupa aproximadamente 80 megabytes, lo que cabe en la memoria de incluso una computadora portátil económica varias veces). Supongamos que la computadora A ejecuta 10 mil millones de instrucciones por segundo (más rápido que cualquier computadora secuencial en el momento de escribir esto) y la computadora B ejecuta solo 10 millones de instrucciones por segundo (mucho más lenta que la mayoría de las computadoras contemporáneas), por lo que la computadora A es 1000 veces más rápida que la computadora B en potencia de cálculo bruta. Para hacer la diferencia aún más dramática, supongamos que el programador más hábil del mundo codifica **insertion sort** en lenguaje de máquina para la computadora A, y el código resultante requiere 2n<sup>2</sup> instrucciones para ordenar n números. Supongamos además que un programador promedio implementa **merge sort**, usando un lenguaje de alto nivel con un compilador ineficiente, y el código resultante toma 50n log n instrucciones. Para ordenar 10 millones de números, la computadora A toma:
 
-![](images/image1.png)
-<img src="images/image1.png" alt="" width="300">
+(2 * (10<sup>7</sup>)<sup>2</sup> instrucciones) / (10<sup>10</sup> instrucciones/segundo) = 20,000 segundos (más de 5.5 horas),
+
+mientras que la computadora B toma:
+
+(50 * 10<sup>7</sup> log 10<sup>7</sup> instrucciones) / (10<sup>7</sup> instrucciones/segundo) ≈ 1163 segundos (menos de 20 minutos).
 
 Al usar un algoritmo cuyo tiempo de ejecución crece más lentamente, incluso con un compilador deficiente, la computadora B funciona más de 17 veces más rápido que la computadora A. La ventaja de **merge sort** es aún más pronunciada al ordenar 100 millones de números: mientras que **insertion sort** toma más de 23 días, **merge sort** toma menos de cuatro horas. Aunque 100 millones pueda parecer un número grande, hay más de 100 millones de búsquedas web cada media hora, más de 100 millones de correos electrónicos enviados cada minuto, y algunas de las galaxias más pequeñas (conocidas como galaxias enanas ultracompactas) contienen alrededor de 100 millones de estrellas. En general, a medida que aumenta el tamaño del problema, también lo hace la ventaja relativa de **merge sort**.
 
@@ -141,4 +144,61 @@ Al usar un algoritmo cuyo tiempo de ejecución crece más lentamente, incluso co
 
 El ejemplo anterior muestra que debes considerar los algoritmos, al igual que el hardware de la computadora, como una _tecnología_. El rendimiento total del sistema depende tanto de elegir algoritmos eficientes como de elegir hardware rápido. Así como se están logrando avances rápidos en otras tecnologías informáticas, también se están logrando en algoritmos.
 
-Podrías preguntarte si los algoritmos son realmente tan importantes en las computadoras contemporáneas a la luz de otras tecnologías avanzadas, como...
+Podrías preguntarte si los algoritmos son realmente tan importantes en las computadoras contemporáneas a la luz de otras tecnologías avanzadas, como:
+
+* arquitecturas de computadoras avanzadas y tecnologías de fabricación,
+
+* interfaces gráficas de usuario (GUIs) intuitivas y fáciles de usar,
+
+* sistemas orientados a objetos,
+
+* tecnologías web integradas,
+
+* redes rápidas, tanto cableadas como inalámbricas,
+
+* aprendizaje automático (machine learning),
+
+* y dispositivos móviles.
+
+La respuesta es sí. Aunque algunas aplicaciones no requieren explícitamente contenido algorítmico a nivel de aplicación (como algunas aplicaciones web simples), muchas sí lo hacen. Por ejemplo, considera un servicio basado en la web que determina cómo viajar de un lugar a otro. Su implementación dependería de hardware rápido, una interfaz gráfica de usuario, redes de área amplia y posiblemente también de la orientación a objetos. También requeriría algoritmos para operaciones como encontrar rutas (probablemente usando un algoritmo de camino más corto), renderizar mapas e interpolar direcciones.
+
+Además, incluso una aplicación que no requiere contenido algorítmico a nivel de aplicación depende en gran medida de algoritmos. ¿La aplicación depende de hardware rápido? El diseño del hardware utiliza algoritmos. ¿La aplicación depende de interfaces gráficas de usuario? El diseño de cualquier GUI depende de algoritmos. ¿La aplicación depende de redes? El enrutamiento en redes depende en gran medida de algoritmos. ¿La aplicación fue escrita en un lenguaje distinto al código de máquina? Entonces fue procesada por un compilador, intérprete o ensamblador, todos los cuales hacen un uso extensivo de algoritmos. Los algoritmos están en el núcleo de la mayoría de las tecnologías utilizadas en las computadoras contemporáneas.
+
+El aprendizaje automático (machine learning) puede considerarse como un método para realizar tareas algorítmicas sin diseñar explícitamente un algoritmo, sino infiriendo patrones a partir de datos y, por lo tanto, aprendiendo automáticamente una solución. A primera vista, el aprendizaje automático, que automatiza el proceso de diseño de algoritmos, puede parecer que hace obsoleto el aprendizaje sobre algoritmos. Sin embargo, lo contrario es cierto. El aprendizaje automático es en sí mismo una colección de algoritmos, solo que bajo un nombre diferente. Además, actualmente parece que los éxitos del aprendizaje automático son principalmente para problemas en los que nosotros, como humanos, no entendemos realmente cuál es el algoritmo correcto. Ejemplos prominentes incluyen la visión por computadora y la traducción automática de idiomas. Para problemas algorítmicos que los humanos comprenden bien, como la mayoría de los problemas en este libro, los algoritmos eficientes diseñados para resolver un problema específico suelen ser más exitosos que los enfoques de aprendizaje automático.
+
+La ciencia de datos es un campo interdisciplinario con el objetivo de extraer conocimiento y percepciones de datos estructurados y no estructurados. La ciencia de datos utiliza métodos de estadística, informática y optimización. El diseño y análisis de algoritmos es fundamental para este campo. Las técnicas centrales de la ciencia de datos, que se superponen significativamente con las del aprendizaje automático, incluyen muchos de los algoritmos presentados en este libro.
+
+Además, con las capacidades cada vez mayores de las computadoras, las utilizamos para resolver problemas más grandes que nunca. Como vimos en la comparación anterior entre **insertion sort** y **merge sort**, es en tamaños de problemas más grandes donde las diferencias en eficiencia entre los algoritmos se vuelven particularmente prominentes.
+
+Tener una base sólida de conocimiento y técnica algorítmica es una característica que define al programador verdaderamente hábil. Con la tecnología informática moderna, puedes realizar algunas tareas sin saber mucho sobre algoritmos, pero con un buen conocimiento de algoritmos, puedes hacer mucho, mucho más.
+
+#### Ejercicios
+
+_1.2-1_
+
+Da un ejemplo de una aplicación que requiera contenido algorítmico a nivel de aplicación y discute la función de los algoritmos involucrados.
+
+_1.2-2_
+
+Supongamos que, para entradas de tamaño _n_ en una computadora en particular, **insertion sort** se ejecuta en 8n<sup>2</sup> pasos y **merge sort** se ejecuta en 64n log n pasos. ¿Para qué valores de _n_ **insertion sort** supera a **merge sort**?
+
+_1.2-3_
+
+¿Cuál es el valor más pequeño de _n_ tal que un algoritmo cuyo tiempo de ejecución es 100n<sup>2</sup> se ejecute más rápido que un algoritmo cuyo tiempo de ejecución es 2<sup>n</sup> en la misma máquina?
+
+## Problemas
+
+### Comparación de tiempos de ejecución
+
+Para cada función _f(n)_ y tiempo _t_ en la siguiente tabla, determina el tamaño más grande _n_ de un problema que puede resolverse en el tiempo _t_, asumiendo que el algoritmo para resolver el problema toma _f(n)_ microsegundos.
+
+| Función       | 1 segundo | 1 minuto | 1 hora | 1 día | 1 mes | 1 año | 1 siglo |
+|---------------|-----------|----------|--------|-------|-------|-------|---------|
+| log n         |           |          |        |       |       |       |         |
+| sqrt(n)       |           |          |        |       |       |       |         |
+| n             |           |          |        |       |       |       |         |
+| n log n       |           |          |        |       |       |       |         |
+| n²            |           |          |        |       |       |       |         |
+| n³            |           |          |        |       |       |       |         |
+| 2ⁿ            |           |          |        |       |       |       |         |
+| n!            |           |          |        |       |       |       |         |
